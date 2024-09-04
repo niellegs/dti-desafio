@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --titulo: "Josefin Sans", sistem-ui;
+    --paragrafo: "Libre Franklin", sistem-ui;
+    --azulClaro: #48CFCB;
+    --azulEscuro: #229799;
+    --branco: #F5F5F5;
+    --preto: #424242;
+}
+
+.itemClasse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: var(--preto) solid .2rem;
+    width: 25vw;
+    height: 30vh;
+    font-family: var(--paragrafo);
+}
+
+.itemClasse:hover {
+    background-color: var(--azulEscuro);
+    color: var(--branco);
+}

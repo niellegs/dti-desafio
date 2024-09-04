@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --titulo: "Josefin Sans", sistem-ui;
+    --paragrafo: "Libre Franklin", sistem-ui;
+    --azulClaro: #48CFCB;
+    --azulEscuro: #229799;
+    --branco: #F5F5F5;
+    --preto: #424242;
+}
+
+header {
+    background-color: var(--azulClaro);
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1, .menu button {
+    margin: 0 2rem;
+}
+
+header h1 {
+    font-family: var(--titulo);
+    padding: 1rem;
+    color: var(--preto);
+}
+
+header ul {
+    list-style: none;
+}
+
+.menu {
+    position: relative;
+    float: left;
+    font-family: var(--paragrafo);
+}
+
+.menu li {
+    display: flex;
+    background-color: var(--azulEscuro);
+    color: white;
+    width: 15vw;
+    height: 7vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu button {
+    cursor: pointer;
+    font-size: 3rem;
+    padding: 0.15rem 1rem;
+    background-color: var(--azulEscuro);
+    border: none;
+    color: var(--branco);
+}
+
+/* MENU EM DROPDOWN */
+
+.menu li ul {
+    position: absolute;
+    top: 4rem;
+    width: 15vw;
+    height: 7vh;
+    text-align: center;
+    left: 0;
+    display: none;
+}
+
+
+.menu li:hover ul, .menu li.over ul {
+    display: block;
+    cursor: pointer;
+}
+
+.menu li ul li{
+    border:1px solid #c0c0c0;
+    display:block;
+    width: 15vw;
+}
+
+.menu li ul li p {
+    margin-top: 1rem;
+}
