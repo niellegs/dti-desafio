@@ -15,7 +15,7 @@
     position: absolute;
     background-color: var(--branco);
     border: var(--azulEscuro) 1rem solid;
-    transform: translate(30vw, 20vh);
+    transform: translate(30vw, 8vh);
     width: 50vw;
     height: auto;
 }
@@ -44,6 +44,7 @@
 .info div {
     display: flex;
     align-items: center;
+    margin-top: 1.5rem;
 }
 
 .info div input {
@@ -67,3 +68,30 @@
     background-color: var(--azulEscuro);
     color: var(--branco);
 }
+
+.containerMaterias {
+    overflow-y: scroll;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.materias:first-child {
+    margin-top: 5rem;
+}
+.materias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.materias input {
+    width: 3rem;
+}
+
+.materias h4 {
+    margin-bottom: 2rem;
+}
+

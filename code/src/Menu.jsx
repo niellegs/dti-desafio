@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/menu.css';
 
-function Menu({ alternarAddTurma }) {
+function Menu({ alternarAddTurma, alternarAddAluno }) {
   return (
     <header>
       <h1>GRADEHUB</h1>
@@ -10,7 +10,7 @@ function Menu({ alternarAddTurma }) {
           <button>+</button>
           <ul>
             <li onClick={alternarAddTurma}><p>Turma</p></li>
-            <li><p>Aluno</p></li>
+            <li onClick={alternarAddAluno}><p>Aluno</p></li>
           </ul>
         </li>
       </ul>
