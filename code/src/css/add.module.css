@@ -15,6 +15,9 @@
     position: absolute;
     background-color: var(--branco);
     border: var(--azulEscuro) 1rem solid;
+    transform: translate(30vw, 20vh);
+    width: 50vw;
+    height: auto;
 }
 
 .fechar {
@@ -27,5 +30,40 @@
 }
 
 .info {
-    
+    margin: 1rem;
+    font-family: var(--paragrafo);
+}
+
+.info h3 {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    font-family: var(--titulo);
+    color: var(--azulEscuro);
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+}
+
+.info div input {
+    background-color: #D9D9D9;
+    border: none;
+    margin-left: .2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+    padding: .5rem;
+}
+
+.info button {
+    background-color: var(--azulClaro);
+    padding: 1rem 3rem;
+    border: none;
+    margin: 2rem 40%;
+}
+
+.info button:hover {
+    cursor: pointer;
+    background-color: var(--azulEscuro);
+    color: var(--branco);
 }
