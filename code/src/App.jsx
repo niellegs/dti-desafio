@@ -5,6 +5,7 @@ import AddTurma from './AddTurma';
 import AddAluno from './AddAluno';
 
 function App() {
+  const [classes, setClasses] = useState(["2º ANO - A", "2º ANO - B"])
   const [addTurma, seeAddTurma] = useState(false);
   const [addAluno, seeAddAluno] = useState(false);
 
@@ -14,18 +15,20 @@ function App() {
   const alternarAddAluno = () => {
     seeAddAluno(prevState => !prevState);
   }
-  const turmaToMain = () => {
-    
+
+  const addClasse = (novaClasse) => {
+    setClasses([...classes, novaClasse]);
   }
+
   return (
     <div className="App">
       <Menu alternarAddTurma={alternarAddTurma} alternarAddAluno={alternarAddAluno} />
-      {addTurma && <AddTurma />}
+      {addTurma && <AddTurma addClasse={addClasse}/>}
       {addAluno && <AddAluno />}
       <AddAluno />
       <h2>MINHAS TURMAS</h2>
       <div className="containerClasse">
-        <Classe />
+        <Classe classes={classes}/>
       </div>
     </div>
   );

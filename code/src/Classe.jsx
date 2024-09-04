@@ -1,7 +1,6 @@
 import "./css/classe.css";
 
-function Classe() {
-    var classes = ["2º ANO - A", "2º ANO - B"]
+function Classe({ classes }) {
     return (
         <>
             {classes.map((classe, index) => (

@@ -18,6 +18,7 @@
     width: 25vw;
     height: 30vh;
     font-family: var(--paragrafo);
+    margin-top: 1.5rem;
 }
 
 .itemClasse:hover {
