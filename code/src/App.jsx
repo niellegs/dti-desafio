@@ -28,6 +28,11 @@ function App() {
         setAlunos([...alunos, novoAluno]);
     };
 
+    // Função que será passada para Classe
+    const handleSelectClasse = (classe) => {
+        setClasseSelecionada(classe);
+    };
+
     return (
         <div className="App">
             <Menu alternarAddTurma={alternarAddTurma} alternarAddAluno={alternarAddAluno} />
@@ -35,7 +40,7 @@ function App() {
             {addAluno && <AddAluno onAddAluno={handleAddAluno} classes={classes} />}
             <h2>MINHAS TURMAS</h2>
             <div className="containerClasse">
-                <Classe classes={classes} onSelectClass={setClasseSelecionada} />
+                <Classe classes={classes} onSelectClasse={handleSelectClasse} />
             </div>
             {classeSelecionada && <VerClasse classeSelecionada={classeSelecionada} alunos={alunos} />}
         </div>
