@@ -6,8 +6,9 @@ o GradeHub surgiu como uma possívell solução ao case apresentado na documenta
 
 ## instruções para execução
 
-1. Faça o download do arquivo.
-2. Execute o comando `npm start` dentro do diretório code no seu terminal.
+1. Faça o download do arquivo;
+2. Entre no diretório "code";
+3. Execute o comando `npm start` dentro do diretório no seu terminal para abrir o projeto no servidor local.
 
 ## Premissas Assumidas
 
