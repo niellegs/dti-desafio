@@ -1,4 +1,3 @@
-// src/Aluno.js
 class Aluno {
     constructor(nome, classe, notaPortugues, freqPortugues, notaMatematica, freqMatematica, notaHistoria, freqHistoria, notaFisica, freqFisica, notaFilosofia, freqFilosofia) {
         this.nome = nome;

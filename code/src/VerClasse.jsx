@@ -1,4 +1,3 @@
-// src/VerClasse.jsx
 import React, { useState } from "react";
 import styles from "./css/verclasse.module.css";
 
@@ -6,14 +5,11 @@ function VerClasse({ classeSelecionada, alunos }) {
     const [notasAcimaDaMedia, setNotasAcimaDaMedia] = useState(false);
     const [frequenciaAbaixo75, setFrequenciaAbaixo75] = useState(false);
 
-    // Filtra os alunos pela classe selecionada
     const alunosFiltrados = alunos.filter(aluno => aluno.classe === classeSelecionada);
 
-    // Calcula a média de notas e frequências
     const mediaNotas = alunosFiltrados.reduce((acc, aluno) => acc + aluno.mediaNota(), 0) / alunosFiltrados.length || 0;
     const mediaFrequencias = alunosFiltrados.reduce((acc, aluno) => acc + aluno.mediaFrequencia(), 0) / alunosFiltrados.length || 0;
 
-    // Filtra os alunos de acordo com os filtros selecionados
     const alunosFiltradosComFiltros = alunosFiltrados.filter(aluno => {
         const notaMedia = aluno.mediaNota();
         const frequenciaMedia = aluno.mediaFrequencia();

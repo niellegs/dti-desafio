@@ -1,4 +1,3 @@
-// src/AddAluno.jsx
 import React, { useState } from "react";
 import styles from "./css/add.module.css";
 import Aluno from "./Aluno";
