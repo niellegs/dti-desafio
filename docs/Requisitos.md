@@ -1,8 +1,8 @@
 # Personas
 
-| EU COMO...  | QUERO... | PARA |
+| EU COMO...  | QUERO... | PARA... |
 |---- | ---------------- | ------ |
-| Professor | lançar as notas dos meus alunos em um servidor | Organizar melhor as notas e frequências. |
+| Professor | lançar as notas dos meus alunos em um servidor | organizar melhor as notas e frequências. |
 
 # Requisitos Funcionais
 
