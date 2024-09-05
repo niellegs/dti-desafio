@@ -1,8 +1,27 @@
-import React from "react";
+// src/VerClasse.jsx
+import React, { useState } from "react";
 import styles from "./css/verclasse.module.css";
 
 function VerClasse({ classeSelecionada, alunos }) {
+    const [notasAcimaDaMedia, setNotasAcimaDaMedia] = useState(false);
+    const [frequenciaAbaixo75, setFrequenciaAbaixo75] = useState(false);
+
+    // Filtra os alunos pela classe selecionada
     const alunosFiltrados = alunos.filter(aluno => aluno.classe === classeSelecionada);
+
+    // Calcula a média de notas e frequências
+    const mediaNotas = alunosFiltrados.reduce((acc, aluno) => acc + aluno.mediaNota(), 0) / alunosFiltrados.length || 0;
+    const mediaFrequencias = alunosFiltrados.reduce((acc, aluno) => acc + aluno.mediaFrequencia(), 0) / alunosFiltrados.length || 0;
+
+    // Filtra os alunos de acordo com os filtros selecionados
+    const alunosFiltradosComFiltros = alunosFiltrados.filter(aluno => {
+        const notaMedia = aluno.mediaNota();
+        const frequenciaMedia = aluno.mediaFrequencia();
+        return (
+            (!notasAcimaDaMedia || notaMedia > mediaNotas) &&
+            (!frequenciaAbaixo75 || frequenciaMedia < 75)
+        );
+    });
 
     return (
         <>
@@ -12,7 +31,6 @@ function VerClasse({ classeSelecionada, alunos }) {
 
                 <label htmlFor="disciplinas" className={styles.disciplinas}>Disciplina:</label>
                 <input list="disciplinas" name="disciplinas" className={styles.disciplinasInput} />
-
                 <datalist id="disciplinas">
                     <option value="Todas" />
                     <option value="Português" />
@@ -21,18 +39,15 @@ function VerClasse({ classeSelecionada, alunos }) {
                     <option value="Física" />
                     <option value="Filosofia" />
                 </datalist>
+
                 <div className={styles.containerInfo}>
                     <div>
                         <p>Média de notas:</p>
-                        <p className={styles.infoNumber}>
-                            {alunosFiltrados.reduce((acc, aluno) => acc + aluno.mediaNota(), 0) / alunosFiltrados.length || 0}
-                        </p>
+                        <p className={styles.infoNumber}>{mediaNotas.toFixed(2)}</p>
                     </div>
                     <div>
                         <p>Média de Frequências:</p>
-                        <p className={styles.infoNumber}>
-                            {alunosFiltrados.reduce((acc, aluno) => acc + aluno.mediaFrequencia(), 0) / alunosFiltrados.length || 0}%
-                        </p>
+                        <p className={styles.infoNumber}>{mediaFrequencias.toFixed(2)}%</p>
                     </div>
                 </div>
             </div>
@@ -42,11 +57,21 @@ function VerClasse({ classeSelecionada, alunos }) {
             <div className={styles.alunos}>
                 <div className={styles.checkboxes}>
                     <div>
-                        <input type="checkbox" id="notasAcimaDaMedia" />
+                        <input
+                            type="checkbox"
+                            id="notasAcimaDaMedia"
+                            checked={notasAcimaDaMedia}
+                            onChange={() => setNotasAcimaDaMedia(!notasAcimaDaMedia)}
+                        />
                         <label htmlFor="notasAcimaDaMedia">Notas acima da média</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="frequenciaAbaixo75" />
+                        <input
+                            type="checkbox"
+                            id="frequenciaAbaixo75"
+                            checked={frequenciaAbaixo75}
+                            onChange={() => setFrequenciaAbaixo75(!frequenciaAbaixo75)}
+                        />
                         <label htmlFor="frequenciaAbaixo75">Frequência abaixo de 75%</label>
                     </div>
                 </div>
@@ -60,7 +85,7 @@ function VerClasse({ classeSelecionada, alunos }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {alunosFiltrados.map((aluno, index) => (
+                        {alunosFiltradosComFiltros.map((aluno, index) => (
                             <tr key={index}>
                                 <td>{aluno.nome}</td>
                                 <td>{aluno.mediaNota().toFixed(2)}</td>

@@ -6,45 +6,43 @@ import AddAluno from './AddAluno';
 import VerClasse from './VerClasse';
 
 function App() {
-    const [classes, setClasses] = useState(["2º ANO - A", "2º ANO - B"]);
-    const [alunos, setAlunos] = useState([]);
-    const [addTurma, setAddTurma] = useState(false);
-    const [addAluno, setAddAluno] = useState(false);
-    const [classeSelecionada, setClasseSelecionada] = useState(null);
+  const [classes, setClasses] = useState(["2º ANO - A", "2º ANO - B"]);
+  const [alunos, setAlunos] = useState([]);
+  const [addTurmaVisible, setAddTurmaVisible] = useState(false);
+  const [addAlunoVisible, setAddAlunoVisible] = useState(false);
+  const [classeSelecionada, setClasseSelecionada] = useState(null);
 
-    const alternarAddTurma = () => {
-        setAddTurma(prevState => !prevState);
-    };
+  const toggleAddTurma = () => {
+    setAddTurmaVisible(prevState => !prevState);
+  };
 
-    const alternarAddAluno = () => {
-        setAddAluno(prevState => !prevState);
-    };
+  const toggleAddAluno = () => {
+    setAddAlunoVisible(prevState => !prevState);
+  };
 
-    const addClasse = (novaClasse) => {
-        setClasses([...classes, novaClasse]);
-    };
+  const handleAddClasse = (novaClasse) => {
+    setClasses([...classes, novaClasse]);
+  };
 
-    const handleAddAluno = (novoAluno) => {
-        setAlunos([...alunos, novoAluno]);
-    };
+  const handleAddAluno = (novoAluno) => {
+    setAlunos([...alunos, novoAluno]);
+  };
 
-    // Função que será passada para Classe
-    const handleSelectClasse = (classe) => {
-        setClasseSelecionada(classe);
-    };
-
-    return (
-        <div className="App">
-            <Menu alternarAddTurma={alternarAddTurma} alternarAddAluno={alternarAddAluno} />
-            {addTurma && <AddTurma addClasse={addClasse} />}
-            {addAluno && <AddAluno onAddAluno={handleAddAluno} classes={classes} />}
-            <h2>MINHAS TURMAS</h2>
-            <div className="containerClasse">
-                <Classe classes={classes} onSelectClasse={handleSelectClasse} />
-            </div>
-            {classeSelecionada && <VerClasse classeSelecionada={classeSelecionada} alunos={alunos} />}
-        </div>
-    );
+  return (
+    <div className="App">
+      <Menu
+        alternarAddTurma={toggleAddTurma}
+        alternarAddAluno={toggleAddAluno}
+      />
+      {addTurmaVisible && <AddTurma onAddClasse={handleAddClasse} />}
+      {addAlunoVisible && <AddAluno onAddAluno={handleAddAluno} classes={classes} />}
+      <h2>MINHAS TURMAS</h2>
+      <div className="containerClasse">
+        <Classe classes={classes} onSelectClasse={setClasseSelecionada} />
+      </div>
+      {classeSelecionada && <VerClasse classeSelecionada={classeSelecionada} alunos={alunos} />}
+    </div>
+  );
 }
 
 export default App;
