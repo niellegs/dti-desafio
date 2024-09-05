@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --titulo: "Josefin Sans", sistem-ui;
+    --paragrafo: "Libre Franklin", sistem-ui;
+    --azulClaro: #48CFCB;
+    --azulEscuro: #229799;
+    --branco: #F5F5F5;
+    --preto: #424242;
+}
+
+.cabecalho {
+    font-family: var(--paragrafo);
+}
+
+.cabecalho h2 {
+    background-color: var(--azulEscuro);
+    width: 100vw;
+    height: 5vh;
+    margin: 0;
+    color: var(--branco);
+    padding: 1rem;
+}
+
+.cabecalho h3 {
+    color: var(--azulEscuro);
+    margin: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.disciplinas {
+    margin: 1.5rem  1rem 1.5rem 1.5rem;
+}
+
+.disciplinasInput {
+    background-color: #D9D9D9;
+    border: none;
+    margin-left: .2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+    padding: .5rem;
+}
+
+.containerInfo {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.infoNumber {
+    font-size: 2rem;
+}
+
+.faixaAzul {
+    background-color: var(--azulEscuro);
+    width: 100vw;
+    height: 2vh;
+}
+
+.alunos {
+    display: block;
+}
+
+.checkboxes {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    font-size: 1.3rem;
+}
+
+.checkboxes input {
+    width: 2rem;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 90%; 
+    margin: 20px 0;
+    font-family: Arial, sans-serif; 
+}
+
+.table th, .table td {
+    border: 1px solid rgb(160, 160, 160);
+    padding: 10px; 
+    text-align: left; 
+}
+
+.table th {
+    background-color: #f4f4f4; 
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #e0e0e0; 
+}
